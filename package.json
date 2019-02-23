@@ -4,5 +4,20 @@
   "description": "Animejs wrapper for Vue",
   "main": "index.js",
   "author": "Mikhail Panichev <denis.invader@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@storybook/vue": "^4.1.13",
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.6.7"
+  },
+  "dependencies": {
+    "animejs": "^3.0.1",
+    "vue": "^2.6.7"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  }
 }
