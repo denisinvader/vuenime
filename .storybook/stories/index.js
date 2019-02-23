@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/vue';
 
 import Sandbox from './Sandbox.vue';
 
-storiesOf('MyButton', module)
-  .add('sandbox', () => ({
+storiesOf('Sandbox', module)
+  .add('nothing to see here', () => ({
     render: h => h(Sandbox),
   }))
 ;
