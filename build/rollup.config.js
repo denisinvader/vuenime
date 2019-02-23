@@ -22,7 +22,7 @@ module.exports = ({ input, output, name, minify }) => {
   return {
     input: {
       input,
-      external: [],
+      external: ['animejs'],
       plugins: plugins,
     },
     output: {
@@ -31,6 +31,7 @@ module.exports = ({ input, output, name, minify }) => {
       format: 'umd',
       name: name || 'vuenime',
       globals: {
+        'animejs': 'animejs',
         'vuenime': 'vuenime',
       },
     },
