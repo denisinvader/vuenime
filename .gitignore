@@ -1,5 +1,7 @@
 .DS_Store
 node_modules
+vuenime.js
+vuenime.min.js
 
 # local env files
 .env.local
