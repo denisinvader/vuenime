@@ -41,6 +41,8 @@ export default {
   data () {
     return {
       target: this.value,
+      animationTarget: null,
+      animation: null,
     };
   },
   computed: {
@@ -60,11 +62,26 @@ export default {
   },
   watch: {
     value () {
-      anime({
+      this.resetAnimation();
+
+      this.animationTarget = this;
+
+      this.animation = anime({
         targets: this,
         target: this.value,
         ...this.animationParameters,
       });
+    },
+  },
+  methods: {
+    resetAnimation () {
+      if (this.animation) {
+        this.animation.pause();
+      }
+
+      if (this.animationTarget) {
+        anime.remove(this.animationTarget);
+      }
     },
   },
   render () {
