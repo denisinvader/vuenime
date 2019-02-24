@@ -4,8 +4,8 @@
 
 ### v1.x
 
-- Provide props to configure animation
-- Add knobs plugin with for animation parameters
+- ~~Provide props to configure animation~~
+- Add knobs plugin for animation parameters
 - Implement arrays animation
 - Implement objects animation
 - Implement hooks
