@@ -2,6 +2,20 @@ import { text, boolean, number, select } from '@storybook/addon-knobs';
 
 const animationGroup = 'Animation parameters';
 
+const easingOptions = [
+  'easeInQuad', 'easeOutQuad', 'easeInOutQuad',
+  'easeInCubic', 'easeOutCubic', 'easeInOutCubic',
+  'easeInQuart', 'easeOutQuart', 'easeInOutQuart',
+  'easeInQuint', 'easeOutQuint', 'easeInOutQuint',
+  'easeInSine', 'easeOutSine', 'easeInOutSine',
+  'easeInExpo', 'easeOutExpo', 'easeInOutExpo',
+  'easeInCirc', 'easeOutCirc', 'easeInOutCirc',
+  'easeInBack', 'easeOutBack', 'easeInOutBack',
+  'cubicBezier(.5, .05, .1, .3)', 'spring(1, 80, 10, 0)', 'steps(10)',
+  'easeInElastic(1, .5)', 'easeOutElastic(1, .5)', 'easeInOutElastic(1, .5)',
+  'custom',
+];
+
 export const withAnimationKnobs = story => () => ({
   props: {
     duration: {
@@ -18,11 +32,15 @@ export const withAnimationKnobs = story => () => ({
     },
     easing: {
       type: String,
-      default: text('Easing', 'easeOutElastic(1, .5)', animationGroup),
+      default: select('Easing', easingOptions, 'easeOutElastic(1, .5)', animationGroup),
+    },
+    customEasing: {
+      type: String,
+      default: text('Custom easing', '', animationGroup),
     },
     round: {
       type: Number,
-      default: number('round', 0, { min: 0, step: 1 }, animationGroup),
+      default: number('round', 1, { min: 0, step: 1 }, animationGroup),
     },
     direction: {
       type: String,
@@ -39,12 +57,17 @@ export const withAnimationKnobs = story => () => ({
   },
   render (h) {
     let loopValue = false;
+    let easing = this.easing;
 
     if (this.loop) {
       loopValue = loopTimes > 0
         ? loopTimes
         : true
       ;
+    }
+
+    if (easing === 'custom') {
+      easing = this.customEasing;
     }
 
     return h(story, {
