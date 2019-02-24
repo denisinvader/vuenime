@@ -1,0 +1,16 @@
+html,
+body {
+  cursor: default;
+  font-family: Arial, sans, sans-serif;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="color"] {
+  border: 1px solid #777777;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 4px 8px;
+}

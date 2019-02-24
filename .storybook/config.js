@@ -1,6 +1,13 @@
 import { addDecorator, configure } from '@storybook/vue';
 import { withOptions } from '@storybook/addon-options';
 
+import './stories/theme.css';
+
+import Vue from 'vue';
+import Vuenime from '../src/main.js';
+
+Vue.use(Vuenime);
+
 addDecorator (
   withOptions({
     name: 'Vuenime',
