@@ -13,10 +13,10 @@ addDecorator (
     name: 'Vuenime',
     url: 'https://github.com/denisinvader/vuenime',
     goFullScreen: false,
-    showLeftPanel: true,
-    showDownPanel: true,
+    showStoriesPanel: true,
+    showAddonPanel: true,
     showSearchBox: false,
-    downPanelInRight: true,
+    addonPanelInRight: true,
     enableShortcuts: false,
   })
 );
