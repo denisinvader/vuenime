@@ -8,6 +8,7 @@
 - Add knobs plugin with for animation parameters
 - Implement arrays animation
 - Implement objects animation
+- Implement hooks
 - Standalone enter and leave transitions
 - Write readme and docs
 - Examples
