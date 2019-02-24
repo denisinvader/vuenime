@@ -4,13 +4,14 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withAnimationKnobs } from './utils.js';
 
 import PrimitivesNumber from './PrimitivesNumber.vue';
+import PrimitivesColor from './PrimitivesColor.vue';
+import PrimitivesPath from './PrimitivesPath.vue';
 
 storiesOf('Primitives', module)
   .addDecorator(withKnobs)
-  // .add('Number', () => ({
-  //   render: h => h(PrimitivesNumber),
-  // }))
   .add('Number', withAnimationKnobs(PrimitivesNumber))
+  .add('Color', withAnimationKnobs(PrimitivesColor))
+  .add('SVG path', withAnimationKnobs(PrimitivesPath))
 ;
 
 import Sandbox from './Sandbox.vue';

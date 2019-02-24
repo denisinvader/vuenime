@@ -1,18 +1,17 @@
 <template>
   <div>
     <p>
-      <label for="countInput">Value:</label>
+      <label for="colorInput">Color:</label>
       <input
-        id="countInput"
-        type="number"
-        min="0"
-        :value="count"
-        @change="e => count = +e.target.value"
+        id="colorInput"
+        type="color"
+        :value="color"
+        @change="e => color = e.target.value"
       />
     </p>
 
     <vuenime
-      :value="count"
+      :value="color"
       :duration="duration"
       :delay="delay"
       :endDelay="endDelay"
@@ -21,11 +20,11 @@
       :direction="direction"
       :loop="loop"
     >
-      <div slot-scope="count">
-        <code>Width: {{count}}px</code>
+      <div slot-scope="color">
+        <code>Color: {{color}}</code>
         <div
-          class="bar"
-          :style="{ width: `${Math.max(0, count)}px` }"
+          class="box"
+          :style="{ color }"
         />
       </div>
     </vuenime>
@@ -39,15 +38,16 @@ export default {
   mixins: [WithAnimationProps],
   data () {
     return {
-      count: 42,
+      color: '#53b983',
     };
   },
 };
 </script>
 
 <style scoped>
-.bar {
-  height: 40px;
-  background-color: #53b983;
+.box {
+  background-color: currentColor;
+  height: 100px;
+  width: 100px;
 }
 </style>
