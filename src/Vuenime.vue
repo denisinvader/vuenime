@@ -1,10 +1,11 @@
 <script>
 import anime from 'animejs';
+import { isArray } from './utils.js';
 
 export default {
   props: {
     value: {
-      type: [Number, String],
+      type: [Number, String, Array],
       required: true,
     },
 
@@ -64,6 +65,15 @@ export default {
     value () {
       this.resetAnimation();
 
+      if (isArray(this.value)) {
+        this.animateArray();
+      } else {
+        this.animatePrimitive();
+      }
+    },
+  },
+  methods: {
+    animatePrimitive () {
       this.animationTarget = this;
 
       this.animation = anime({
@@ -72,8 +82,28 @@ export default {
         ...this.animationParameters,
       });
     },
-  },
-  methods: {
+    animateArray () {
+      const valueLength = this.value.length;
+      const updateTarget = {};
+      const updateValues = {};
+
+      for (let i = 0; i < valueLength; i++) {
+        updateTarget[i] = this.target[i];
+        updateValues[i] = this.value[i];
+      }
+
+      this.animationTarget = updateTarget;
+
+      this.animation = anime({
+        targets: this.animationTarget,
+        ...updateValues,
+        ...this.animationParameters,
+        update: () => {
+          this.target = Object.values(updateTarget);
+        },
+      });
+    },
+
     resetAnimation () {
       if (this.animation) {
         this.animation.pause();
