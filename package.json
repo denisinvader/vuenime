@@ -1,6 +1,6 @@
 {
   "name": "vuenime",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Animejs wrapper for Vue",
   "main": "vuenime.js",
   "author": "Mikhail Panichev <denis.invader@gmail.com>",
