@@ -60,8 +60,8 @@ export const withAnimationKnobs = story => () => ({
     let easing = this.easing;
 
     if (this.loop) {
-      loopValue = loopTimes > 0
-        ? loopTimes
+      loopValue = this.loopTimes > 0
+        ? this.loopTimes
         : true
       ;
     }
