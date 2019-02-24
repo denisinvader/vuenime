@@ -3,6 +3,8 @@ import { text, boolean, number, select } from '@storybook/addon-knobs';
 const animationGroup = 'Animation parameters';
 
 const easingOptions = [
+  'linear',
+
   'easeInQuad', 'easeOutQuad', 'easeInOutQuad',
   'easeInCubic', 'easeOutCubic', 'easeInOutCubic',
   'easeInQuart', 'easeOutQuart', 'easeInOutQuart',
@@ -11,8 +13,11 @@ const easingOptions = [
   'easeInExpo', 'easeOutExpo', 'easeInOutExpo',
   'easeInCirc', 'easeOutCirc', 'easeInOutCirc',
   'easeInBack', 'easeOutBack', 'easeInOutBack',
+
   'cubicBezier(.5, .05, .1, .3)', 'spring(1, 80, 10, 0)', 'steps(10)',
+
   'easeInElastic(1, .5)', 'easeOutElastic(1, .5)', 'easeInOutElastic(1, .5)',
+
   'custom',
 ];
 
