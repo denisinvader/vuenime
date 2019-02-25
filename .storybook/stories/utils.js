@@ -21,7 +21,7 @@ const easingOptions = [
   'custom',
 ];
 
-export const withAnimationKnobs = story => () => ({
+export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
   props: {
     duration: {
       type: Number,
@@ -45,7 +45,7 @@ export const withAnimationKnobs = story => () => ({
     },
     round: {
       type: Number,
-      default: number('round', 1, { min: 0, step: 1 }, animationGroup),
+      default: number('round', defaultValues.round || 1, { min: 0, step: 1 }, animationGroup),
     },
     direction: {
       type: String,

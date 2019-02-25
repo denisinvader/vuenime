@@ -14,6 +14,13 @@ storiesOf('Primitives', module)
   .add('SVG path', withAnimationKnobs(PrimitivesPath))
 ;
 
+import ArraysNumber from './ArraysNumber.vue';
+
+storiesOf('Arrays', module)
+  .addDecorator(withKnobs)
+  .add('Of numbers', withAnimationKnobs(ArraysNumber, { round: 100 }))
+;
+
 import Sandbox from './Sandbox.vue';
 
 storiesOf('Sandbox', module)
