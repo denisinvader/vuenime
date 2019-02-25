@@ -6,7 +6,7 @@
 
     <svg viewBox="0 0 240 80">
       <vuenime
-        :value="sizes"
+        :value="colors"
         :duration="duration"
         :delay="delay"
         :endDelay="endDelay"
@@ -16,27 +16,27 @@
         :loop="loop"
       >
         <g
-          slot-scope="sizes"
+          slot-scope="colors"
           transform="translate(30, 30)"
-          fill="#53b983"
           stroke="none"
         >
           <circle
-            v-for="(size, i) in sizes"
+            v-for="(color, i) in colors"
             :key="'circle-' + i"
-            :r="Math.max(0, size)"
+            :fill="color"
             :cx="i * 60"
             cy="0"
+            r="20"
           />
 
           <text
-            v-for="(size, i) in sizes"
+            v-for="(color, i) in colors"
             :key="'label-' + i"
             :x="i * 60"
             y="30"
             class="code"
             text-anchor="middle"
-          >{{ size | fixed }}</text>
+          >{{ color }}</text>
         </g>
       </vuenime>
     </svg>
@@ -50,18 +50,17 @@ export default {
   mixins: [WithAnimationProps],
   data () {
     return {
-      sizes: [20, 20, 20, 20],
+      colors: ['rgba(83,185,131, 1)', 'rgba(83,185,131, 1)', 'rgba(83,185,131, 1)', 'rgba(83,185,131, 1)'],
     };
-  },
-  filters: {
-    fixed: n => `0${n.toFixed(2)}`.substr(-5),
   },
   methods: {
     randomize () {
-      this.sizes = this.sizes.map(this.getRandomSize);
+      this.colors = this.colors.map(this.getRandomColor);
     },
-    getRandomSize () {
-      return 3 + Math.random() * 17;
+    getRandomColor () {
+      const c = () => Math.round(Math.random() * 256);
+
+      return `rgb(${c()}, ${c()}, ${c()})`;
     },
   },
 };

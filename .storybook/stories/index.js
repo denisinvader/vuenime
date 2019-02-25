@@ -15,10 +15,12 @@ storiesOf('Primitives', module)
 ;
 
 import ArraysNumber from './ArraysNumber.vue';
+import ArraysColor from './ArraysColor.vue';
 
 storiesOf('Arrays', module)
   .addDecorator(withKnobs)
   .add('Of numbers', withAnimationKnobs(ArraysNumber, { round: 100 }))
+  .add('Of colors', withAnimationKnobs(ArraysColor))
 ;
 
 import Sandbox from './Sandbox.vue';
