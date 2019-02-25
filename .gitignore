@@ -2,6 +2,7 @@
 node_modules
 vuenime.js
 vuenime.min.js
+docs/
 
 # local env files
 .env.local
