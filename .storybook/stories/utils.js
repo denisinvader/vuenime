@@ -25,11 +25,11 @@ export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
   props: {
     duration: {
       type: Number,
-      default: number('Duration', 1000, { min: 0, step: 1 }, animationGroup),
+      default: number('duration', 1000, { min: 0, step: 1 }, animationGroup),
     },
     delay: {
       type: Number,
-      default: number('Delay', 0, { min: 0, step: 1 }, animationGroup),
+      default: number('delay', 0, { min: 0, step: 1 }, animationGroup),
     },
     endDelay: {
       type: Number,
@@ -37,7 +37,7 @@ export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
     },
     easing: {
       type: String,
-      default: select('Easing', easingOptions, 'easeOutElastic(1, .5)', animationGroup),
+      default: select('easing', easingOptions, 'easeOutElastic(1, .5)', animationGroup),
     },
     customEasing: {
       type: String,
@@ -49,11 +49,11 @@ export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
     },
     direction: {
       type: String,
-      default: select('Direction', ['normal', 'reverse', 'alternate'], 'normal', animationGroup),
+      default: select('direction', ['normal', 'reverse', 'alternate'], 'normal', animationGroup),
     },
     loop: {
       type: Boolean,
-      default: boolean('Loop', false, animationGroup),
+      default: boolean('loop', false, animationGroup),
     },
     loopTimes: {
       type: Number,
