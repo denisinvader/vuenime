@@ -17,12 +17,17 @@ storiesOf('Primitives', module)
 import ArraysNumber from './ArraysNumber.vue';
 import ArraysColor from './ArraysColor.vue';
 import ArraysDynamic from './ArraysDynamic.vue';
+import ArraysTransitionGroup from './ArraysTransitionGroup.vue';
 
 storiesOf('Arrays', module)
   .addDecorator(withKnobs)
   .add('Of numbers', withAnimationKnobs(ArraysNumber, { round: 100 }))
   .add('Of colors', withAnimationKnobs(ArraysColor))
   .add('Dynamic length', withAnimationKnobs(ArraysDynamic, { round: 100 }))
+  .add('Enter/leave with <transition-group>', withAnimationKnobs(
+    ArraysTransitionGroup,
+    { round: 100 }
+  ))
 ;
 
 import Sandbox from './Sandbox.vue';
