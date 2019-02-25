@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <button @click="randomize">Randomize</button>
+      <button @click="randomize">Randomize all</button>
     </p>
 
     <svg viewBox="0 0 240 80">
@@ -27,6 +27,7 @@
             :r="Math.max(0, size)"
             :cx="i * 60"
             cy="0"
+            @click="() => randomizeAtIndex(i)"
           />
 
           <text
@@ -59,6 +60,13 @@ export default {
   methods: {
     randomize () {
       this.sizes = this.sizes.map(this.getRandomSize);
+    },
+    randomizeAtIndex (index) {
+      this.sizes = [
+        ...this.sizes.slice(0, index),
+        this.getRandomSize(),
+        ...this.sizes.slice(index + 1),
+      ];
     },
     getRandomSize () {
       return 3 + Math.random() * 17;

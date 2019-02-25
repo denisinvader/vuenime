@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <button @click="randomize">Randomize</button>
+      <button @click="randomize">Randomize all</button>
     </p>
 
     <svg viewBox="0 0 240 80">
@@ -27,6 +27,7 @@
             :cx="i * 60"
             cy="0"
             r="20"
+            @click="() => randomizeAtIndex(i)"
           />
 
           <text
@@ -56,6 +57,13 @@ export default {
   methods: {
     randomize () {
       this.colors = this.colors.map(this.getRandomColor);
+    },
+    randomizeAtIndex (index) {
+      this.colors = [
+        ...this.colors.slice(0, index),
+        this.getRandomColor(),
+        ...this.colors.slice(index + 1),
+      ];
     },
     getRandomColor () {
       const c = () => Math.round(Math.random() * 256);
