@@ -83,25 +83,39 @@ export default {
       });
     },
     animateArray () {
-      const valueLength = this.value.length;
-      const updateTarget = {};
-      const updateValues = {};
+      const { target, value } = this;
+      const valueLength = value.length;
+      const targetLength = target.length;
 
-      for (let i = 0; i < valueLength; i++) {
-        updateTarget[i] = this.target[i];
-        updateValues[i] = this.value[i];
+      if (targetLength < valueLength) {
+        // enter
+        this.target = [...target, value.slice(targetLength)];
+      } else if (targetLength > valueLength) {
+        // exit
+        this.target = target.slice(0, valueLength);
       }
 
-      this.animationTarget = updateTarget;
+      if (valueLength > 0) {
+        // update
+        const updatingTarget = {};
+        const updateValues = {};
 
-      this.animation = anime({
-        targets: this.animationTarget,
-        ...updateValues,
-        ...this.animationParameters,
-        update: () => {
-          this.target = Object.values(updateTarget);
-        },
-      });
+        for (let i = 0; i < valueLength; i++) {
+          updatingTarget[i] = this.target[i];
+          updateValues[i] = this.value[i];
+        }
+
+        this.animationTarget = updatingTarget;
+
+        this.animation = anime({
+          targets: this.animationTarget,
+          ...updateValues,
+          ...this.animationParameters,
+          update: () => {
+            this.target = Object.values(updatingTarget);
+          },
+        });
+      }
     },
 
     resetAnimation () {

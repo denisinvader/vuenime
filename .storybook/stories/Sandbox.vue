@@ -8,8 +8,20 @@ export default {
     };
   },
   methods: {
+    getRandomSize () {
+      return Math.round(5 + Math.random() * 15);
+    },
     randomize () {
-      this.sizes = this.sizes.map(() => 5 + Math.random() * 15);
+      this.sizes = this.sizes.map(this.getRandomSize);
+    },
+    push () {
+      this.sizes = [
+        ...this.sizes,
+        this.getRandomSize(),
+      ];
+    },
+    pop () {
+      this.sizes = this.sizes.slice(0, this.sizes.length - 1);
     },
   },
   render () {
@@ -17,8 +29,10 @@ export default {
       <div>
         <p>
           <button onClick={this.randomize}>Randomize</button>
+          <button onClick={this.push}>Push</button>
+          <button onClick={this.pop}>Pop</button>
         </p>
-        <svg viewBox={`0 0 ${4 * 60} 60`}>
+        <svg viewBox={`0 0 ${10 * 60} 60`}>
           <Vuenime
             value={this.sizes}
             duration={300}
