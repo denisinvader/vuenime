@@ -10,11 +10,11 @@
 - Implement objects animation
 - Implement hooks
 - Standalone enter and leave transitions
-- Write readme and docs
 - Examples
     - Basic features
     - Combining with `<transition-group>`
     - Standalone enter and leave transitions
+- Write readme and docs
 
 ### v2.x
 
