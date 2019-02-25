@@ -1,0 +1,1 @@
+{"version":3,"file":"main.2dbf5f7183ccb9623bd0.bundle.js","sources":["webpack:///./src/main.js"],"sourcesContent":["import _vuenime from './Vuenime.vue';\n\nexport const Vuenime = _vuenime.default || _vuenime;\n\nexport default {\n  install (Vue) {\n    Vue.component('vuenime', Vuenime);\n  },\n};\n"],"mappings":"AAAA","sourceRoot":""}
