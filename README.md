@@ -1,5 +1,7 @@
 # Check it out later
 
+Or you can check progress in the [storybook](https://denisinvader.github.io/vuenime/)
+
 ## Roadmap
 
 ### v1.x
