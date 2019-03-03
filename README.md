@@ -8,7 +8,7 @@ Or you can check progress in the [storybook](https://denisinvader.github.io/vuen
 
 - ~~Provide props to configure animation~~
 - ~~Add knobs plugin for animation parameters~~
-- Implement arrays animation
+- ~~Implement arrays animation~~
 - Implement objects animation
 - Implement hooks
 - Standalone enter and leave transitions
