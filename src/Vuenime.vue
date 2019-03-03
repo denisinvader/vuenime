@@ -1,11 +1,11 @@
 <script>
 import anime from 'animejs';
-import { isArray } from './utils.js';
+import { isArray, isObject } from './utils.js';
 
 export default {
   props: {
     value: {
-      type: [Number, String, Array],
+      type: [Number, String, Array, Object],
       required: true,
     },
 
@@ -67,6 +67,8 @@ export default {
 
       if (isArray(this.value)) {
         this.animateArray();
+      } else if (isObject(this.value)) {
+        this.animateObject();
       } else {
         this.animatePrimitive();
       }
@@ -113,6 +115,74 @@ export default {
           ...this.animationParameters,
           update: () => {
             this.target = Object.values(updatingTarget);
+          },
+        });
+      }
+    },
+    animateObject () {
+      const currentKeys = Object.keys(this.target);
+      const nextKeys = Object.keys(this.value);
+      const currentKeysLength = currentKeys.length;
+      const nextKeysLength = nextKeys.length;
+      const enterKeys = [];
+      const leaveKeys = [];
+      const updateKeys = [];
+
+      for (let i = 0; i < nextKeysLength; i++) {
+        const key = nextKeys[i];
+
+        if (currentKeys.includes(key)) {
+          updateKeys.push(key);
+        } else {
+          enterKeys.push(key);
+        }
+      }
+
+      for (let i = 0; i < currentKeysLength; i++) {
+        const key = currentKeys[i];
+
+        if (!nextKeys.includes(key)) {
+          leaveKeys.push(key);
+        }
+      }
+
+      const enterKeysLength = enterKeys.length;
+      const leaveKeysLength = leaveKeys.length;
+      const updateKeysLength = updateKeys.length;
+
+      // enter
+      for (let i = 0; i < enterKeysLength; i++) {
+        const key = enterKeys[i];
+
+        this.target[key] = this.value[key];
+      }
+
+      // levae
+      for (let i = 0; i < leaveKeysLength; i++) {
+        delete this.target[leaveKeys[i]];
+      }
+
+      // update
+      if (updateKeysLength > 0) {
+        const animatingObject = {};
+        const animationValues = {};
+
+        for (let i = 0; i < updateKeysLength; i++) {
+          const key = updateKeys[i];
+
+          animatingObject[key] = this.target[key];
+          animationValues[key] = this.value[key];
+        }
+
+        anime({
+          targets: animatingObject,
+          ...animationValues,
+          ...this.animationParameters,
+          update: () => {
+            this.target = {
+              ...this.target,
+              ...animatingObject,
+            };
           },
         });
       }
