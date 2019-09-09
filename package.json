@@ -29,7 +29,9 @@
   },
   "scripts": {
     "lint": "eslint ./  --ext .js --ext .vue",
-    "build": "rollup -c",
+    "build": "rm -rf dist && rollup -c",
+    "prepublishOnly": "yarn lint && yarn build",
+    "postpublish": "git push && git push --tags",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o docs"
   }
