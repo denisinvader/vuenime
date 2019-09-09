@@ -1,6 +1,6 @@
 <script>
 import anime from 'animejs';
-import { isArray, isObject } from './utils.js';
+import { isArray, isObject } from './utils';
 
 export default {
   props: {
@@ -102,7 +102,7 @@ export default {
         const updatingTarget = {};
         const updateValues = {};
 
-        for (let i = 0; i < valueLength; i++) {
+        for (let i = 0; i < valueLength; i += 1) {
           updatingTarget[i] = this.target[i];
           updateValues[i] = this.value[i];
         }
@@ -128,7 +128,7 @@ export default {
       const leaveKeys = [];
       const updateKeys = [];
 
-      for (let i = 0; i < nextKeysLength; i++) {
+      for (let i = 0; i < nextKeysLength; i += 1) {
         const key = nextKeys[i];
 
         if (currentKeys.includes(key)) {
@@ -138,7 +138,7 @@ export default {
         }
       }
 
-      for (let i = 0; i < currentKeysLength; i++) {
+      for (let i = 0; i < currentKeysLength; i += 1) {
         const key = currentKeys[i];
 
         if (!nextKeys.includes(key)) {
@@ -151,14 +151,14 @@ export default {
       const updateKeysLength = updateKeys.length;
 
       // enter
-      for (let i = 0; i < enterKeysLength; i++) {
+      for (let i = 0; i < enterKeysLength; i += 1) {
         const key = enterKeys[i];
 
         this.target[key] = this.value[key];
       }
 
       // levae
-      for (let i = 0; i < leaveKeysLength; i++) {
+      for (let i = 0; i < leaveKeysLength; i += 1) {
         delete this.target[leaveKeys[i]];
       }
 
@@ -167,7 +167,7 @@ export default {
         const animatingObject = {};
         const animationValues = {};
 
-        for (let i = 0; i < updateKeysLength; i++) {
+        for (let i = 0; i < updateKeysLength; i += 1) {
           const key = updateKeys[i];
 
           animatingObject[key] = this.target[key];

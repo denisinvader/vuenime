@@ -11,7 +11,7 @@ const config = {
     file: `dist/${meta.name}.js`,
     name: meta.name,
     format: 'umd',
-    globals: { 'animejs': 'anime' },
+    globals: { animejs: 'anime' },
     exports: 'named',
   },
   plugins: [
