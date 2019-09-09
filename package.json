@@ -6,26 +6,24 @@
   "author": "Mikhail Panichev <denis.invader@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@storybook/addon-knobs": "^4.1.13",
-    "@storybook/addon-options": "^4.1.13",
-    "@storybook/vue": "^4.1.13",
-    "babel-loader": "^8.0.5",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/addon-options": "^5.1.11",
+    "@storybook/vue": "^5.1.11",
+    "babel-loader": "^8.0.6",
     "babel-preset-vue": "^2.0.2",
-    "rollup": "^1.2.3",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-uglify": "^6.0.2",
-    "rollup-plugin-vue": "^4.7.2",
-    "vue-loader": "^15.6.4",
-    "vue-template-compiler": "^2.6.7"
+    "rollup": "^1.21.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-uglify": "^6.0.3",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-loader": "^15.7.1",
+    "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "animejs": "^3.0.1",
-    "vue": "^2.6.7"
+    "animejs": "^3.1.0",
+    "vue": "^2.6.10"
   },
   "scripts": {
     "build": "BABEL_ENV=build node build",
