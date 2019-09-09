@@ -1,3 +1,2 @@
 *
-!/vuenime.js
-!/vuenime.min.js
+!dist/*
