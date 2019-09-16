@@ -3,6 +3,8 @@
 - remember object animation to destroy it in watcher;
 - add stories of objects;
 - fix eslint errors;
+- check that `$scopedSlots.default` is function;
+- add `render` prop for shorter JSX;
 
 # v0.2.1
 
