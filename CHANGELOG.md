@@ -1,4 +1,8 @@
-# master
+# v1.0.1
+
+- fix entry;
+
+# v1.0.0
 
 - remember object animation to destroy it in watcher;
 - add stories of objects;
