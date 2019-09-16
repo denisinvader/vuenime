@@ -1,6 +1,7 @@
-# master
+# v1.0.2
 
 - add CodeSandbox examples;
+- improve package.json;
 
 # v1.0.1
 
