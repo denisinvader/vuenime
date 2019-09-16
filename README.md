@@ -2,11 +2,14 @@
 
 A flexible [Vue](https://vuejs.org) wrapper for [Animejs](https://animejs.com)
 
+
 ```sh
 npm install vuenime
 # or
 yarn add vuenime
 ```
+
+[CodeSandbox examples](https://codesandbox.io/u/denisinvader/sandboxes)
 
 ## Usage
 
