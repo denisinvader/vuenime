@@ -1,3 +1,7 @@
+# master
+
+- add CodeSandbox examples;
+
 # v1.0.1
 
 - fix entry;
