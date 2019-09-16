@@ -9,7 +9,7 @@ npm install vuenime
 yarn add vuenime
 ```
 
-[CodeSandbox examples](https://codesandbox.io/u/denisinvader/sandboxes)
+[Storybook](https://denisinvader.github.io/vuenime/) | [CodeSandbox](https://codesandbox.io/u/denisinvader/sandboxes)
 
 ## Usage
 

@@ -1,3 +1,7 @@
+# v1.0.3
+
+- add link to storybook;
+
 # v1.0.2
 
 - add CodeSandbox examples;
