@@ -174,8 +174,10 @@ export default {
           animationValues[key] = this.value[key];
         }
 
-        anime({
-          targets: animatingObject,
+        this.animationTarget = animatingObject;
+
+        this.animation = anime({
+          targets: this.animationTarget,
           ...animationValues,
           ...this.animationParameters,
           update: () => {
