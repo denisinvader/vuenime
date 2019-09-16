@@ -1,6 +1,6 @@
 {
   "name": "vuenime",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A flexible Vue wrapper for Animejs",
   "keywords": [
     "vue",
@@ -14,7 +14,9 @@
   "main": "dist/vuenime.js",
   "author": "Mikhail Panichev <denis.invader@gmail.com>",
   "homepage": "https://github.com/denisinvader/vuenime",
-  "bugs": { "url": "https://github.com/denisinvader/vuenime/issues" },
+  "bugs": {
+    "url": "https://github.com/denisinvader/vuenime/issues"
+  },
   "repository": "github:denisinvader/vuenime",
   "license": "MIT",
   "devDependencies": {
