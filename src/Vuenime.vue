@@ -201,7 +201,11 @@ export default {
     },
   },
   render () {
-    return this.$scopedSlots.default(this.target);
+    const renderFunction = this.$scopedSlots.default;
+
+    return typeof renderFunction === 'function'
+      ? renderFunction(this.target)
+      : null;
   },
 };
 </script>
