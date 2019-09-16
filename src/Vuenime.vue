@@ -8,6 +8,10 @@ export default {
       type: [Number, String, Array, Object],
       required: true,
     },
+    render: {
+      type: Function,
+      default: null,
+    },
 
     duration: {
       type: Number,
@@ -201,7 +205,7 @@ export default {
     },
   },
   render () {
-    const renderFunction = this.$scopedSlots.default;
+    const renderFunction = this.render || this.$scopedSlots.default;
 
     return typeof renderFunction === 'function'
       ? renderFunction(this.target)
