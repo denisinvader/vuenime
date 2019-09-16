@@ -12,6 +12,10 @@ import ArraysColor from './ArraysColor.vue';
 import ArraysDynamic from './ArraysDynamic.vue';
 import ArraysTransitionGroup from './ArraysTransitionGroup.vue';
 
+import ObjectsNumber from './ObjectsNumber.vue';
+import ObjectsColor from './ObjectsColor.vue';
+import ObjectsMixed from './ObjectsMixed.vue';
+
 storiesOf('Primitives', module)
   .addDecorator(withKnobs)
   .add('Number', withAnimationKnobs(PrimitivesNumber))
@@ -27,3 +31,9 @@ storiesOf('Arrays', module)
     ArraysTransitionGroup,
     { round: 100 },
   ));
+
+storiesOf('Objects', module)
+  .addDecorator(withKnobs)
+  .add('With numbers', withAnimationKnobs(ObjectsNumber, { round: 100 }))
+  .add('With colors', withAnimationKnobs(ObjectsColor))
+  .add('Mixed', withAnimationKnobs(ObjectsMixed, { round: 100 }));
