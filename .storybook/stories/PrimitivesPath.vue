@@ -5,11 +5,11 @@
 
       <input
         id="heightInput"
+        :value="height"
+        @change="e => height = +e.target.value"
         type="range"
         min="20"
         max="180"
-        :value="height"
-        @change="e => height = +e.target.value"
       >
     </p>
 
@@ -23,24 +23,25 @@
       :round="round"
       :direction="direction"
       :loop="loop"
+      v-slot="d"
     >
-      <div slot-scope="d">
+      <div>
         <svg viewBox="0 0 600 400">
           <path
+            :d="d"
             stroke="#53b983"
             stroke-width="2"
             fill="none"
-            :d="d"
           />
         </svg>
-        <code>Path: {{ d }}</code>
+        <code>Path: {{d}}</code>
       </div>
     </vuenime>
   </div>
 </template>
 
 <script>
-import { WithAnimationProps } from './utils.js';
+import { WithAnimationProps } from './utils';
 
 export default {
   mixins: [WithAnimationProps],

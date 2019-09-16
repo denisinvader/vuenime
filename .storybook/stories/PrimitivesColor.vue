@@ -4,10 +4,10 @@
       <label for="colorInput">Color:</label>
       <input
         id="colorInput"
-        type="color"
         :value="color"
         @change="e => color = e.target.value"
-      />
+        type="color"
+      >
     </p>
 
     <vuenime
@@ -19,12 +19,15 @@
       :round="round"
       :direction="direction"
       :loop="loop"
+      v-slot="theColor"
     >
-      <div slot-scope="color">
-        <code>Color: {{color}}</code>
+      <div>
+        <code>
+          Color: {{theColor}}
+        </code>
         <div
+          :style="{color: theColor,}"
           class="box"
-          :style="{ color }"
         />
       </div>
     </vuenime>
@@ -32,7 +35,7 @@
 </template>
 
 <script>
-import { WithAnimationProps } from './utils.js';
+import { WithAnimationProps } from './utils';
 
 export default {
   mixins: [WithAnimationProps],

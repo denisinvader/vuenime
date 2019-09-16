@@ -1,14 +1,15 @@
+/* eslint global-require: 0 */
 import { addDecorator, configure } from '@storybook/vue';
 import { withOptions } from '@storybook/addon-options';
 
 import './stories/theme.css';
 
 import Vue from 'vue';
-import Vuenime from '../src/main.js';
+import Vuenime from '../src/main';
 
 Vue.use(Vuenime);
 
-addDecorator (
+addDecorator(
   withOptions({
     name: 'Vuenime',
     url: 'https://github.com/denisinvader/vuenime',
@@ -18,7 +19,7 @@ addDecorator (
     showSearchBox: false,
     addonPanelInRight: true,
     enableShortcuts: false,
-  })
+  }),
 );
 
 configure(() => require('./stories'), module);

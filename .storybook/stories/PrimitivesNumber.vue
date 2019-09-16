@@ -4,11 +4,11 @@
       <label for="countInput">Value:</label>
       <input
         id="countInput"
-        type="number"
-        min="0"
         :value="count"
         @change="e => count = +e.target.value"
-      />
+        type="number"
+        min="0"
+      >
     </p>
 
     <vuenime
@@ -20,12 +20,13 @@
       :round="round"
       :direction="direction"
       :loop="loop"
+      v-slot="theCount"
     >
-      <div slot-scope="count">
-        <code>Width: {{count}}px</code>
+      <div>
+        <code>Width: {{theCount}}px</code>
         <div
+          :style="{width: `${Math.max(0, theCount)}px`,}"
           class="bar"
-          :style="{ width: `${Math.max(0, count)}px` }"
         />
       </div>
     </vuenime>
@@ -33,7 +34,7 @@
 </template>
 
 <script>
-import { WithAnimationProps } from './utils.js';
+import { WithAnimationProps } from './utils';
 
 export default {
   mixins: [WithAnimationProps],

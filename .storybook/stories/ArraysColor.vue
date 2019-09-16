@@ -1,7 +1,9 @@
 <template>
   <div>
     <p>
-      <button @click="randomize">Randomize all</button>
+      <button @click="randomize">
+        Randomize all
+      </button>
     </p>
 
     <svg viewBox="0 0 240 80">
@@ -14,30 +16,33 @@
         :round="round"
         :direction="direction"
         :loop="loop"
+        v-slot="theColors"
       >
         <g
-          slot-scope="colors"
           transform="translate(30, 30)"
           stroke="none"
         >
           <circle
-            v-for="(color, i) in colors"
+            v-for="(color, i) in theColors"
             :key="'circle-' + i"
+            :data-index="i"
             :fill="color"
             :cx="i * 60"
+            @click="randomizeAtIndex(i)"
             cy="0"
             r="20"
-            @click="() => randomizeAtIndex(i)"
           />
 
           <text
-            v-for="(color, i) in colors"
+            v-for="(color, i) in theColors"
             :key="'label-' + i"
             :x="i * 60"
             y="30"
             class="code"
             text-anchor="middle"
-          >{{ color }}</text>
+          >
+            {{color}}
+          </text>
         </g>
       </vuenime>
     </svg>
@@ -45,7 +50,7 @@
 </template>
 
 <script>
-import { WithAnimationProps } from './utils.js';
+import { WithAnimationProps } from './utils';
 
 export default {
   mixins: [WithAnimationProps],

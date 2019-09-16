@@ -1,9 +1,15 @@
 <template>
   <div>
     <p>
-      <button @click="randomize">Randomize all</button>
-      <button @click="push">Push</button>
-      <button @click="pop">Pop</button>
+      <button @click="randomize">
+        Randomize all
+      </button>
+      <button @click="push">
+        Push
+      </button>
+      <button @click="pop">
+        Pop
+      </button>
     </p>
 
     <svg viewBox="0 0 600 80">
@@ -16,37 +22,39 @@
         :round="round"
         :direction="direction"
         :loop="loop"
+        v-slot="theSizes"
       >
         <g
-          slot-scope="sizes"
           transform="translate(30, 30)"
           fill="#53b983"
           stroke="none"
         >
           <transition-group
-            tag="g"
             :css="false"
             @enter="onEnter"
             @leave="onLeave"
+            tag="g"
           >
             <circle
-              v-for="(size, i) in sizes"
+              v-for="(size, i) in theSizes"
               :key="'circle-' + i"
               :r="Math.max(0, size)"
               :cx="i * 60"
+              @click="randomizeAtIndex(i)"
               cy="0"
-              @click="() => randomizeAtIndex(i)"
             />
           </transition-group>
 
           <text
-            v-for="(size, i) in sizes"
+            v-for="(size, i) in theSizes"
             :key="'label-' + i"
             :x="i * 60"
             y="30"
             class="code"
             text-anchor="middle"
-          >{{ size | fixed }}</text>
+          >
+            {{size | fixed}}
+          </text>
         </g>
       </vuenime>
     </svg>
@@ -55,17 +63,17 @@
 
 <script>
 import anime from 'animejs';
-import { WithAnimationProps } from './utils.js';
+import { WithAnimationProps } from './utils';
 
 export default {
+  filters: {
+    fixed: n => `0${Number(n).toFixed(2)}`.substr(-5),
+  },
   mixins: [WithAnimationProps],
   data () {
     return {
       sizes: [20, 20, 20, 20],
     };
-  },
-  filters: {
-    fixed: n => `0${(+n).toFixed(2)}`.substr(-5),
   },
   methods: {
     randomize () {

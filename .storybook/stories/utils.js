@@ -4,20 +4,36 @@ const animationGroup = 'Animation parameters';
 
 const easingOptions = [
   'linear',
-
-  'easeInQuad', 'easeOutQuad', 'easeInOutQuad',
-  'easeInCubic', 'easeOutCubic', 'easeInOutCubic',
-  'easeInQuart', 'easeOutQuart', 'easeInOutQuart',
-  'easeInQuint', 'easeOutQuint', 'easeInOutQuint',
-  'easeInSine', 'easeOutSine', 'easeInOutSine',
-  'easeInExpo', 'easeOutExpo', 'easeInOutExpo',
-  'easeInCirc', 'easeOutCirc', 'easeInOutCirc',
-  'easeInBack', 'easeOutBack', 'easeInOutBack',
-
-  'cubicBezier(.5, .05, .1, .3)', 'spring(1, 80, 10, 0)', 'steps(10)',
-
-  'easeInElastic(1, .5)', 'easeOutElastic(1, .5)', 'easeInOutElastic(1, .5)',
-
+  'easeInQuad',
+  'easeOutQuad',
+  'easeInOutQuad',
+  'easeInCubic',
+  'easeOutCubic',
+  'easeInOutCubic',
+  'easeInQuart',
+  'easeOutQuart',
+  'easeInOutQuart',
+  'easeInQuint',
+  'easeOutQuint',
+  'easeInOutQuint',
+  'easeInSine',
+  'easeOutSine',
+  'easeInOutSine',
+  'easeInExpo',
+  'easeOutExpo',
+  'easeInOutExpo',
+  'easeInCirc',
+  'easeOutCirc',
+  'easeInOutCirc',
+  'easeInBack',
+  'easeOutBack',
+  'easeInOutBack',
+  'cubicBezier(.5, .05, .1, .3)',
+  'spring(1, 80, 10, 0)',
+  'steps(10)',
+  'easeInElastic(1, .5)',
+  'easeOutElastic(1, .5)',
+  'easeInOutElastic(1, .5)',
   'custom',
 ];
 
@@ -62,13 +78,12 @@ export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
   },
   render (h) {
     let loopValue = false;
-    let easing = this.easing;
+    let { easing } = this;
 
     if (this.loop) {
       loopValue = this.loopTimes > 0
         ? this.loopTimes
-        : true
-      ;
+        : true;
     }
 
     if (easing === 'custom') {
@@ -87,7 +102,7 @@ export const withAnimationKnobs = (story, defaultValues = {}) => () => ({
       },
     });
   },
-})
+});
 
 export const WithAnimationProps = {
   props: {

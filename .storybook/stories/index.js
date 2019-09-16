@@ -1,23 +1,22 @@
 import { storiesOf } from '@storybook/vue';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import { withAnimationKnobs } from './utils.js';
+import { withAnimationKnobs } from './utils';
 
 import PrimitivesNumber from './PrimitivesNumber.vue';
 import PrimitivesColor from './PrimitivesColor.vue';
 import PrimitivesPath from './PrimitivesPath.vue';
 
-storiesOf('Primitives', module)
-  .addDecorator(withKnobs)
-  .add('Number', withAnimationKnobs(PrimitivesNumber))
-  .add('Color', withAnimationKnobs(PrimitivesColor))
-  .add('SVG path', withAnimationKnobs(PrimitivesPath))
-;
-
 import ArraysNumber from './ArraysNumber.vue';
 import ArraysColor from './ArraysColor.vue';
 import ArraysDynamic from './ArraysDynamic.vue';
 import ArraysTransitionGroup from './ArraysTransitionGroup.vue';
+
+storiesOf('Primitives', module)
+  .addDecorator(withKnobs)
+  .add('Number', withAnimationKnobs(PrimitivesNumber))
+  .add('Color', withAnimationKnobs(PrimitivesColor))
+  .add('SVG path', withAnimationKnobs(PrimitivesPath));
 
 storiesOf('Arrays', module)
   .addDecorator(withKnobs)
@@ -26,14 +25,5 @@ storiesOf('Arrays', module)
   .add('Dynamic length', withAnimationKnobs(ArraysDynamic, { round: 100 }))
   .add('Enter/leave with <transition-group>', withAnimationKnobs(
     ArraysTransitionGroup,
-    { round: 100 }
-  ))
-;
-
-import Sandbox from './Sandbox.vue';
-
-storiesOf('Sandbox', module)
-  .add('nothing to see here', () => ({
-    render: h => h(Sandbox),
-  }))
-;
+    { round: 100 },
+  ));
